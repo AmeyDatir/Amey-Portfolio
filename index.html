@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amey Datir — AWS & DevOps Engineer</title>
+
+  <!-- =====================================================
+       EXTERNAL LIBRARIES (CDN — needs internet to work)
+  ====================================================== -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Bootstrap 5.3 CSS — used for: grid, spacing utilities, responsive layout -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+  <!-- =====================================================
+       YOUR CUSTOM CSS (must come AFTER Bootstrap)
+  ====================================================== -->
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="bar"></div>
+
+  <!-- =======================================================
+       NAVBAR
+  ======================================================== -->
+  <nav id="main-nav">
+    <div class="logo">Amey <em>Datir</em></div>
+
+    <div class="nav-right">
+      <!-- Desktop links — hidden on mobile via CSS -->
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact-section">Contact</a>
+      </div>
+
+      <!-- Dark / Light theme toggle -->
+      <button id="theme-toggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+        <!-- Sun (shown in dark mode) -->
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="display:none">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <!-- Moon (shown in light mode) -->
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <!-- Hamburger button — visible only on mobile -->
+      <button id="ham" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- =======================================================
+       MOBILE FULLSCREEN MENU
+  ======================================================== -->
+  <div id="mobile-menu">
+    <button class="close-btn" id="menu-close" aria-label="Close menu">✕</button>
+    <a href="#about"           class="mob-link">About</a>
+    <a href="#skills"          class="mob-link">Skills</a>
+    <a href="#projects"        class="mob-link">Projects</a>
+    <a href="#education"       class="mob-link">Education</a>
+    <a href="#contact-section" class="mob-link">Contact</a>
+  </div>
+
+
+  <!-- =======================================================
+       HERO SECTION
+  ======================================================== -->
+  <div id="hero">
+    <div>
+      <p class="hero-tag"><span></span>AWS &amp; DevOps Engineer · Pune, India</p>
+      <h1>Amey<br/><span class="light">Datir</span></h1>
+      <p class="hero-sub">
+        Building <strong>resilient cloud infrastructure</strong> and automated pipelines.<br/>
+        Currently working with <span id="typed"></span>
+      </p>
+      <div class="hero-actions">
+        <a href="#projects"        class="btn btn-solid">View Projects</a>
+        <a href="#contact-section" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Floating stat pills (hidden on mobile) -->
+    <div class="hero-pills">
+      <div class="pill"><b>99%</b> uptime under load testing</div>
+      <div class="pill"><b>3+</b> production AWS projects</div>
+      <div class="pill"><b>10+</b> AWS services hands-on</div>
+    </div>
+
+    <!-- Animated scroll indicator -->
+    <div class="scroll-hint">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+      Scroll
+    </div>
+  </div>
+
+  <div class="wrap"><hr/></div>
+
+
+  <!-- =======================================================
+       ABOUT SECTION
+       Bootstrap: .row .col-md-6 for 2-column layout
+  ======================================================== -->
+  <section id="about">
+    <div class="wrap">
+
+      <div class="sec-head r">
+        <p class="sec-label">About</p>
+        <h2>Who I am<em> &amp; what I do.</em></h2>
+      </div>
+
+      <!-- Bootstrap grid: 2 columns on md+, stacked on mobile -->
+      <div class="row g-5">
+
+        <div class="col-md-6">
+          <div class="about-body r">
+            <p>I'm <strong>Amey Datir</strong>, an AWS &amp; DevOps Engineer currently pursuing my MCA at
+               <strong>P.E.S. Modern College of Engineering, Pune</strong>. I design and operate cloud systems
+               that are scalable, secure, and fully observable.</p>
+            <p>My work sits at the intersection of infrastructure engineering and deployment automation —
+               from architecting 3-tier AWS environments to building zero-downtime blue-green pipelines
+               with ECS and CodePipeline.</p>
+            <p>I believe good infrastructure is <strong>invisible</strong>: it runs quietly, recovers
+               automatically, and lets developers ship faster.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="r">
+            <div class="fact">
+              <div class="fact-n">3+</div>
+              <div>
+                <div class="fact-t">Production Projects</div>
+                <div class="fact-d">End-to-end on AWS with IaC and CI/CD automation.</div>
+              </div>
+            </div>
+            <div class="fact">
+              <div class="fact-n">99%</div>
+              <div>
+                <div class="fact-t">Availability Achieved</div>
+                <div class="fact-d">Verified under load testing with CloudWatch alarms.</div>
+              </div>
+            </div>
+            <div class="fact">
+              <div class="fact-n">0</div>
+              <div>
+                <div class="fact-t">Downtime Deployments</div>
+                <div class="fact-d">Blue-green strategy on ECS with ALB traffic shifting.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <div class="wrap"><hr/></div>
+
+
+  <!-- =======================================================
+       SKILLS SECTION
+       Bootstrap: .row .col-md-6 for 2x2 grid, gap via g-3
+  ======================================================== -->
+  <section id="skills">
+    <div class="wrap">
+
+      <div class="sec-head r">
+        <p class="sec-label">Skills</p>
+        <h2>Technical<em> stack.</em></h2>
+      </div>
+
+      <!-- Bootstrap grid: 2 columns on md+, 1 on mobile -->
+      <div class="row g-3 r">
+
+        <div class="col-md-6">
+          <div class="sk-group">
+            <h3>☁️ AWS Cloud</h3>
+            <ul class="sk-list">
+              <li><span>EC2</span>                   <span class="sk-note">— Elastic Compute Cloud, virtual servers</span></li>
+              <li><span>S3 &amp; RDS</span>          <span class="sk-note">— Object storage &amp; managed relational DB</span></li>
+              <li><span>IAM</span>                   <span class="sk-note">— Identity &amp; access management, least-privilege</span></li>
+              <li><span>VPC</span>                   <span class="sk-note">— Virtual private cloud, subnets, route tables</span></li>
+              <li><span>ECS &amp; ECR</span>         <span class="sk-note">— Container orchestration &amp; registry</span></li>
+              <li><span>ALB &amp; Auto Scaling</span><span class="sk-note">— Traffic distribution &amp; scaling groups</span></li>
+              <li><span>CloudWatch</span>            <span class="sk-note">— Monitoring, alarms &amp; log management</span></li>
+              <li><span>Route 53 &amp; NAT Gateway</span><span class="sk-note">— DNS &amp; private subnet egress</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="sk-group">
+            <h3>⚙️ DevOps Tools</h3>
+            <ul class="sk-list">
+              <li><span>Docker</span>        <span class="sk-note">— Containerisation &amp; image management</span></li>
+              <li><span>Jenkins</span>       <span class="sk-note">— CI/CD pipeline automation</span></li>
+              <li><span>Terraform</span>     <span class="sk-note">— Infrastructure as Code (IaC) provisioning</span></li>
+              <li><span>Git &amp; GitHub</span><span class="sk-note">— Version control &amp; repository management</span></li>
+              <li><span>AWS CodePipeline</span><span class="sk-note">— Managed CI/CD on AWS</span></li>
+              <li><span>AWS CodeBuild</span> <span class="sk-note">— Fully managed build service</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="sk-group">
+            <h3>💻 Languages</h3>
+            <ul class="sk-list">
+              <li><span>Python</span>        <span class="sk-note">— Scripting, automation &amp; cloud tooling</span></li>
+              <li><span>Core Java</span>     <span class="sk-note">— OOP fundamentals &amp; application logic</span></li>
+              <li><span>Bash Scripting</span><span class="sk-note">— Linux automation &amp; shell workflows</span></li>
+              <li><span>HTML / CSS</span>    <span class="sk-note">— Web application front-end structure</span></li>
+              <li><span>SQL</span>           <span class="sk-note">— Queries, joins &amp; CRUD operations</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="sk-group">
+            <h3>🗄 Database &amp; OS</h3>
+            <ul class="sk-list">
+              <li><span>MySQL</span>                 <span class="sk-note">— Relational database design &amp; management</span></li>
+              <li><span>SQL Joins &amp; CRUD</span>  <span class="sk-note">— Advanced query writing &amp; operations</span></li>
+              <li><span>Linux Administration</span>  <span class="sk-note">— Server setup, permissions &amp; networking</span></li>
+              <li><span>Linux Server Admin</span>    <span class="sk-note">— Production environment management</span></li>
+              <li><span>Windows</span>               <span class="sk-note">— Desktop &amp; server OS proficiency</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <div class="wrap"><hr/></div>
+
+
+  <!-- =======================================================
+       PROJECTS SECTION
+  ======================================================== -->
+  <section id="projects">
+    <div class="wrap">
+
+      <div class="sec-head r">
+        <p class="sec-label">Projects</p>
+        <h2>Things I've<em> built.</em></h2>
+      </div>
+
+      <div class="proj-list">
+
+        <!-- Project 1 -->
+        <div class="proj r">
+          <div class="proj-idx">01</div>
+          <div>
+            <div class="proj-name">AWS 3-Tier Architecture with Auto Scaling &amp; Load Balancer</div>
+            <div class="proj-chips">
+              <span class="chip">EC2</span>
+              <span class="chip">RDS</span>
+              <span class="chip">Terraform</span>
+              <span class="chip">ALB</span>
+              <span class="chip">CloudWatch</span>
+            </div>
+            <ul class="proj-points">
+              <li>Deployed a highly available 3-tier architecture on EC2 (web &amp; app layers) and RDS (database), ensuring seamless operational continuity.</li>
+              <li>Architected a VPC with public &amp; private subnets, route tables, Internet Gateway and NAT Gateway for layered network security.</li>
+              <li>Provisioned all infrastructure with Terraform — IAM roles enforced least-privilege access at every service boundary.</li>
+              <li>Deployed Application Load Balancer + Auto Scaling Group for optimal traffic distribution and fault tolerance.</li>
+              <li>Monitored via CloudWatch alarms — achieved <strong>99% simulated availability</strong> under sustained load testing.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="proj r">
+          <div class="proj-idx">02</div>
+          <div>
+            <div class="proj-name">Enterprise Blue–Green Deployment using AWS ECS</div>
+            <div class="proj-chips">
+              <span class="chip">ECS</span>
+              <span class="chip">Docker</span>
+              <span class="chip">CodePipeline</span>
+              <span class="chip">ECR</span>
+              <span class="chip">Blue-Green</span>
+            </div>
+            <ul class="proj-points">
+              <li>Built a full CI/CD pipeline with CodePipeline &amp; CodeBuild, automating Docker image creation and ECS deployment end-to-end.</li>
+              <li>Designed a Blue–Green deployment architecture on ECS + ALB enabling <strong>zero-downtime application updates</strong> in production.</li>
+              <li>Managed container images in ECR with version tagging to enable reliable rollbacks across environments.</li>
+              <li>Configured VPC, subnets, security groups, IAM roles and load balancer for a fully production-ready cloud stack.</li>
+              <li>Established CloudWatch monitoring and logging for automatic ECS service recovery and real-time observability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="proj r">
+          <div class="proj-idx">03</div>
+          <div>
+            <div class="proj-name">GitHub Repository Mirroring &amp; Version Control Engineering</div>
+            <div class="proj-chips">
+              <span class="chip">Git</span>
+              <span class="chip">GitHub</span>
+              <span class="chip">Version Control</span>
+            </div>
+            <ul class="proj-points">
+              <li>Orchestrated Git-based repository mirroring between local and remote repositories to ensure consistent version history across teams.</li>
+              <li>Streamlined branching, commit, and pull-request workflows to improve code quality and collaboration velocity.</li>
+              <li>Enhanced repository documentation and synchronisation practices for optimised project handoffs.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /proj-list -->
+    </div>
+  </section>
+
+  <div class="wrap"><hr/></div>
+
+
+  <!-- =======================================================
+       EDUCATION SECTION
+       Bootstrap: .row .col-md-6 for 2-column cards
+  ======================================================== -->
+  <section id="education">
+    <div class="wrap">
+
+      <div class="sec-head r">
+        <p class="sec-label">Education</p>
+        <h2>Academic<em> background.</em></h2>
+      </div>
+
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <div class="edu-card r">
+            <div class="edu-deg">Master of Computer Applications</div>
+            <div class="edu-school">P.E.S. Modern College of Engineering, Pune</div>
+            <div class="edu-row2">
+              <div class="edu-period">Aug 2024 – Present &nbsp;·&nbsp; MCA</div>
+              <div class="edu-gpa">6.70 <small>CGPA</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="edu-card r">
+            <div class="edu-deg">Bachelor of Computer Applications</div>
+            <div class="edu-school">Vidya Bharati Mahavidyalaya, Amravati</div>
+            <div class="edu-row2">
+              <div class="edu-period">Mar 2021 – Jun 2024 &nbsp;·&nbsp; BCA</div>
+              <div class="edu-gpa">6.65 <small>CGPA</small></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+  <div class="wrap"><hr/></div>
+
+
+  <!-- =======================================================
+       CERTIFICATIONS SECTION
+  ======================================================== -->
+  <section id="certs">
+    <div class="wrap">
+
+      <div class="sec-head r">
+        <p class="sec-label">Certifications</p>
+        <h2>Credentials &amp;<em> learning.</em></h2>
+      </div>
+
+      <div class="cert-list">
+
+        <div class="cert r">
+          <div class="cert-left">
+            <div class="cert-ico">☁️</div>
+            <div>
+              <div class="cert-name-t">AWS Cloud Practitioner</div>
+              <div class="cert-issuer">Amazon Web Services</div>
+            </div>
+          </div>
+          <span class="badge wip">In Progress</span>
+        </div>
+
+        <div class="cert r">
+          <div class="cert-left">
+            <div class="cert-ico">☕</div>
+            <div>
+              <div class="cert-name-t">Java Programming</div>
+              <div class="cert-issuer">CAD-DESK Pvt. Ltd.</div>
+            </div>
+          </div>
+          <span class="badge done">Completed</span>
+        </div>
+
+        <div class="cert r">
+          <div class="cert-left">
+            <div class="cert-ico">🗄️</div>
+            <div>
+              <div class="cert-name-t">SQL &amp; Database Management</div>
+              <div class="cert-issuer">Professional Certification</div>
+            </div>
+          </div>
+          <span class="badge done">Completed</span>
+        </div>
+
+      </div><!-- /cert-list -->
+    </div>
+  </section>
+
+  <div class="wrap"><hr/></div>
+
+
+  <!-- =======================================================
+       CONTACT SECTION
+       Bootstrap: .row .col-lg-6 for 2-column layout
+  ======================================================== -->
+  <section id="contact-section">
+    <div class="wrap">
+
+      <div class="row g-5 align-items-center">
+
+        <!-- Left: contact info -->
+        <div class="col-lg-6">
+          <div class="c-left r">
+            <p class="sec-label">Contact</p>
+            <h2>Let's work<em> together.</em></h2>
+            <p>Open to AWS &amp; DevOps roles, freelance cloud projects, or a good conversation about
+               infrastructure. I respond to every message.</p>
+
+            <div class="c-links">
+
+              <a href="mailto:datiramey01@gmail.com" class="c-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                datiramey01@gmail.com
+              </a>
+
+              <a href="tel:+919156021199" class="c-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.99-5.99 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                +91 91560 21199
+              </a>
+
+              <!-- ⚠️ Replace href with your actual LinkedIn URL -->
+              <a href="https://linkedin.com/in/amey-datir" target="_blank" class="c-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                LinkedIn <span class="note">→ update your URL</span>
+              </a>
+
+              <!-- ⚠️ Replace href with your actual GitHub URL -->
+              <a href="https://github.com/AmeyDatir" target="_blank" class="c-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+                GitHub <span class="note">→ update your URL</span>
+              </a>
+
+            </div><!-- /c-links -->
+          </div>
+        </div>
+
+        <!-- Right: availability card -->
+        <div class="col-lg-6">
+          <div class="avail-card r">
+            <div class="avail-dot"><span></span> Currently Available</div>
+            <h3>Open to Opportunities</h3>
+            <p>Actively looking for AWS &amp; DevOps engineer roles where I can design resilient
+               infrastructure, automate deployments, and grow with a high-performance team.</p>
+            <div class="mt-3">
+              <div class="avail-row"><span>Location</span><strong>Pune, Maharashtra</strong></div>
+              <div class="avail-row"><span>Work Type</span><strong>Full-time / Internship</strong></div>
+              <div class="avail-row"><span>Notice Period</span><strong>Immediate</strong></div>
+            </div>
+            <a href="mailto:datiramey01@gmail.com"
+               class="btn btn-solid mt-3 w-100 justify-content-center">
+              Hire Me →
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+  <footer>
+    <span class="f-name">Amey Datir</span>
+    <span>
+      AWS &amp; DevOps Engineer
+      <span class="f-dot">·</span>
+      <a href="mailto:datiramey01@gmail.com">datiramey01@gmail.com</a>
+    </span>
+  </footer>
+
+
+  <!-- =======================================================
+       SCRIPTS (at bottom for faster page load)
+  ======================================================== -->
+
+  <!-- Bootstrap 5 JS bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Your custom JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
