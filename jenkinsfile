@@ -4,7 +4,7 @@ agent any
 
 environment {
     SSH_CRED = 'node-app-key'
-    SERVER_IP = '34.228.32.98'
+    SERVER_IP = '54.237.213.243'
     REMOTE_USER = 'ubuntu'
     WEB_DIR = '/var/www/html/'
 }
