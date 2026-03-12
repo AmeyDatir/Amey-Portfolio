@@ -1,7 +1,7 @@
 pipeline {
 agent any
 
-```
+
 environment {
     SSH_CRED = 'node-app-key'
     SERVER_IP = '34.228.32.98'
@@ -37,6 +37,6 @@ stages {
     }
 
 }
-```
 
-}
+
+
