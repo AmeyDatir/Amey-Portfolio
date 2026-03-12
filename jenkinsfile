@@ -1,35 +1,42 @@
 pipeline {
-    agent any
+agent any
 
-    environment {
-        SSH_CRED = 'node-app-key'               // Jenkins credential ID
-        SERVER_IP = '34.228.32.98'          // Your Deploy EC2 IP
-        REMOTE_USER = 'ubuntu'
-        WEB_DIR = '/var/www/html/'
-    }
+```
+environment {
+    SSH_CRED = 'node-app-key'
+    SERVER_IP = '34.228.32.98'
+    REMOTE_USER = 'ubuntu'
+    WEB_DIR = '/var/www/html/'
+}
 
-    stages {
-        stage('Clone Repo') {
-            steps {
-                git url: 'https://github.com/AmeyDatir/Amey-Portfolio.git', branch: 'main'
-            }
-        }
+stages {
 
-        stage('Deploy to Apache Server') {
-            steps {
-                sshagent(credentials: ["${SSH_CRED}"]) {
-                    sh '''
-                        echo "Cleaning old files on server..."
-                        ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${SERVER_IP} "sudo rm -rf ${WEB_DIR}/*"
-
-                        echo "Uploading new files to /tmp on server..."
-                        scp -r index.html css js fonts images ${REMOTE_USER}@${SERVER_IP}:/tmp/
-
-                        echo "Deploying files to Apache directory..."
-                        ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${SERVER_IP} "sudo cp -r /tmp/index.html /tmp/css /tmp/js /tmp/fonts /tmp/images ${WEB_DIR}/"
-                    '''
-                }
-            }
+    stage('Clone Repository') {
+        steps {
+            git url: 'https://github.com/AmeyDatir/Amey-Portfolio.git', branch: 'main'
         }
     }
-} 
+
+    stage('Deploy to Apache Server') {
+        steps {
+            sshagent(credentials: ["${SSH_CRED}"]) {
+                sh '''
+                    echo "Cleaning old files on server..."
+                    ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${SERVER_IP} "sudo rm -rf ${WEB_DIR}/*"
+
+                    echo "Uploading files to server..."
+                    scp -o StrictHostKeyChecking=no index.html script.js style.css ${REMOTE_USER}@${SERVER_IP}:/tmp/
+
+                    echo "Deploying files to Apache directory..."
+                    ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${SERVER_IP} "sudo cp /tmp/index.html /tmp/script.js /tmp/style.css ${WEB_DIR}/"
+
+                    echo "Deployment Successful"
+                '''
+            }
+        }
+    }
+
+}
+```
+
+}
